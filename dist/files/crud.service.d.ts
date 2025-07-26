@@ -96,6 +96,7 @@ declare class CrudService {
         populate: PopulateFieldI<T> | PopulateFieldI<T>[];
         filter: FilterQuery<T> | null;
     }): Promise<CustomMessageI<(T & Document)[]>>;
+    private static getModelLength;
     /**
      * The function `populateModel` populates a model with specified fields and nested fields based on
      * the provided criteria.

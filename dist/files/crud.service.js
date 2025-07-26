@@ -158,8 +158,14 @@ class CrudService {
                 success: true,
                 message: "Data fetched successfully",
                 data: all[0],
-                doc_length: all.length,
+                doc_length: yield CrudService.getModelLength(modelData, filter),
             });
+        });
+    }
+    static getModelLength(model, filter) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const count = yield model.Model.countDocuments(filter || {});
+            return count;
         });
     }
     /**
